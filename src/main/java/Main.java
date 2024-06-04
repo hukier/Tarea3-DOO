@@ -1,13 +1,14 @@
-package backend;
-
-
+import GUI.Ventana;
+import backend.Comprador;
 import backend.Excepciones.NoHayProductoException;
 import backend.Excepciones.PagoIncorrectoException;
 import backend.Excepciones.PagoInsuficienteException;
+import backend.Expendedor;
 import backend.Monedas.Moneda;
 import backend.Monedas.Moneda100;
 import backend.Monedas.Moneda1000;
 import backend.Monedas.Moneda500;
+import backend.Precios;
 
 /**
  * @author Martin Gonzalez
@@ -25,6 +26,10 @@ public class Main {
      * @param args los argumentos de la línea de comandos.
      */
     public static void main(String[] args) {
+
+        Ventana v = new Ventana();
+
+        /*
         Expendedor expendedor = new Expendedor(1);
 
         // Probar con diferentes escenarios
@@ -32,13 +37,17 @@ public class Main {
         probarEscenarioMonedaNula(expendedor);
         probarEscenarioMonedaIgualAlPrecio(expendedor);
         probarEscenarioSinProducto(expendedor);
+        */
     }
+
+
 
     /**
      * Método para probar el escenario de pago insuficiente.
      * 
      * @param exp el expendedor a utilizar.
      */
+    /*
     private static void probarEscenarioPagoInsuficiente(Expendedor exp) {
         try {
             Moneda moneda = new Moneda100();
@@ -49,12 +58,13 @@ public class Main {
             System.err.println(e.getMessage());
         }
     }
-
+    */
     /**
      * Método para probar el escenario de moneda nula.
      * 
      * @param exp el expendedor a utilizar.
      */
+    /*
     private static void probarEscenarioMonedaNula(Expendedor exp) {
         try {
             Moneda moneda = null;
@@ -64,12 +74,14 @@ public class Main {
             System.err.println(e.getMessage());
         }
     }
+    */
 
     /**
      * Método para probar el escenario de moneda igual al precio.
      * 
      * @param exp el expendedor a utilizar.
      */
+    /*
     private static void probarEscenarioMonedaIgualAlPrecio(Expendedor exp) {
         try {
             Moneda moneda = new Moneda500();
@@ -79,12 +91,13 @@ public class Main {
             System.err.println(e.getMessage());
         }
     }
-
+    */
     /**
      * Método para probar el escenario sin producto.
      * 
      * @param exp el expendedor a utilizar.
      */
+    /*
     private static void probarEscenarioSinProducto(Expendedor exp) {
         try {
             Moneda moneda = new Moneda1000();
@@ -98,4 +111,6 @@ public class Main {
             System.err.println(e.getMessage());
         }
     }
+
+     */
 }
