@@ -10,7 +10,7 @@ public class Ventana extends JFrame {
 
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
         this.setSize(1366,768);
         this.setResizable(false);
 
@@ -18,7 +18,7 @@ public class Ventana extends JFrame {
         this.add(panel);
 
 
-
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
     }
 
