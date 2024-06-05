@@ -10,7 +10,7 @@ public class PanelPrincipal extends JPanel {
         setLayout(null);
 
         panelComprador = new PanelComprador();
-        panelExpendedor = new PanelExpendedor();
+        //panelExpendedor = new PanelExpendedor();
 
 
 
