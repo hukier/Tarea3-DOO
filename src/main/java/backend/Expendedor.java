@@ -18,11 +18,16 @@ import backend.Monedas.Moneda100;
  * depósito para monedas de vuelto.
  */
 public class Expendedor {
-    private Deposito<Bebida> coca;
-    private Deposito<Bebida> sprite;
-    private Deposito<Bebida> fanta;
-    private Deposito<Dulce> snickers;
-    private Deposito<Dulce> super8;
+    public static final int FANTA = 0;
+    public static final int SPRITE = 0;
+    public static final int COCACOLA = 0;
+    public static final int SNICKERS = 0;
+    public static final int SUPER8 = 0;
+    public static Deposito<Bebida> coca;
+    public static Deposito<Bebida> sprite;
+    public static Deposito<Bebida> fanta;
+    public static Deposito<Dulce> snickers;
+    public static Deposito<Dulce> super8;
     private Deposito<Moneda> monedasDeVuelto;
 
     /**

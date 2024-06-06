@@ -41,4 +41,16 @@ public class Deposito<D> {
         } else
             return list.remove(0); // si no está vacío, retorna el primer elemento
     }
+
+    public int getSize() {
+        return list.size();
+    }
+
+    public boolean checkSize() {
+        if (list.size() == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
