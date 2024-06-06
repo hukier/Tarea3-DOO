@@ -9,7 +9,7 @@ public class Ventana extends JFrame {
 
         this.setTitle("Expendedor");
         this.setLayout(new BorderLayout());
-        ImageIcon icon = new ImageIcon("src/main/java/resources/IconoTarea3.PNG");
+        ImageIcon icon = new ImageIcon(SacarImagenes.ICONO.getDireccion());
         this.setIconImage(icon.getImage());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
