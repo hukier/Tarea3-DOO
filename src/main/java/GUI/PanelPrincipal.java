@@ -16,6 +16,7 @@ public class PanelPrincipal extends JPanel {
 
         //Crear el fondo
         ImageIcon imagenFondo = new ImageIcon("src/main/java/resources/Fondo.png");
+        ImageIcon icono = new ImageIcon("src/main/java/resources/IconoTarea3.PNG");
         JLabel labelFondo = new JLabel();
         labelFondo.setIcon(imagenFondo);
         labelFondo.setBounds(0, 0, imagenFondo.getIconWidth(), imagenFondo.getIconHeight());
