@@ -14,6 +14,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * @author Roberto Cruz
+ * @author Martin Gonzalez
+ *         Esta clase representa un panel de inventario para una máquina de
+ *         vending.
+ *         Cada producto en el inventario tiene una imagen, un botón para
+ *         consumirlo y
+ *         una etiqueta que muestra la cantidad actual.
+ *         También se muestra la cantidad de dinero disponible para comprar
+ *         productos.
+ */
+
 public class PanelInventario extends JPanel implements ActionListener {
 
     public int inv_cocacola = 0;
@@ -48,8 +60,12 @@ public class PanelInventario extends JPanel implements ActionListener {
     JLabel cuantaSuper8;
 
     /**
-     * @param billetera
+     * Constructor del panel de inventario.
+     * 
+     * @param billetera la cantidad inicial de dinero disponible para comprar
+     *                  productos.
      */
+
     public PanelInventario(int billetera) {
         this.setLayout(null);
 
@@ -159,18 +175,45 @@ public class PanelInventario extends JPanel implements ActionListener {
 
     }
 
+    /**
+     * Método para pintar los componentes del panel.
+     * 
+     * @param g el objeto Graphics para pintar los componentes.
+     */
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
     }
 
+    /**
+     * Método para escalar una imagen a un tamaño específico.
+     * 
+     * @param image la imagen a escalar.
+     * @param ancho el ancho deseado de la imagen.
+     * @param alto  el alto deseado de la imagen.
+     * @return la imagen escalada.
+     */
+
     private Image escalarImagen(Image image, int ancho, int alto) {
         return image.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
     }
 
+    /**
+     * Método para cambiar el texto de una etiqueta.
+     * 
+     * @param label la etiqueta cuyo texto se va a cambiar.
+     * @param texto el nuevo texto para la etiqueta.
+     */
+
     public void cambiarTexto(JLabel label, String texto) {
         label.setText(texto);
     }
+
+    /**
+     * Método para actualizar las etiquetas de cantidad de los productos y la
+     * cantidad de dinero.
+     */
 
     public void modificarInventario() {
         cambiarTexto(dinero, "Dinero: " + billeteraCompra);
@@ -181,6 +224,14 @@ public class PanelInventario extends JPanel implements ActionListener {
         cambiarTexto(cuantaSuper8, "Cantidad: " + inv_super8);
 
     }
+
+    /**
+     * Método para manejar los eventos de acción de los botones.
+     * Cuando se presiona un botón de consumir, se reduce la cantidad del producto
+     * correspondiente y se actualizan las etiquetas.
+     * 
+     * @param e el evento de acción.
+     */
 
     @Override
     public void actionPerformed(ActionEvent e) {

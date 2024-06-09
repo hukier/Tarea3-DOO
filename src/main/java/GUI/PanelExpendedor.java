@@ -9,6 +9,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+/**
+ * @author Roberto Cruz
+ * @author Martin Gonzalez
+ *         Esta clase representa el panel de la interfaz gráfica de usuario para
+ *         el
+ *         expendedor.
+ *         Contiene métodos para crear y manejar la interacción con los
+ *         productos y las
+ *         monedas.
+ */
+
 public class PanelExpendedor extends JPanel {
 
     private Expendedor expendedor;
@@ -17,6 +28,14 @@ public class PanelExpendedor extends JPanel {
     private JLabel monedaSeleccionada;
     private JLabel labelFondo, labelExpendedor;
     private Moneda monedaInsertada;
+
+    /**
+     * Constructor para el PanelExpendedor.
+     * Inicializa el expendedor y crea las etiquetas y botones para los productos y
+     * las monedas.
+     *
+     * @param numEspacios El número de espacios en el expendedor.
+     */
 
     public PanelExpendedor(int numEspacios) {
         setLayout(null);
@@ -69,7 +88,15 @@ public class PanelExpendedor extends JPanel {
         this.setComponentZOrder(labelFondo, this.getComponentCount() - 1);
     }
 
-    // Método para crear etiquetas de productos
+    /**
+     * Método para crear etiquetas de productos.
+     *
+     * @param rutaImagen La ruta a la imagen del producto.
+     * @param x          La posición x de la etiqueta.
+     * @param y          La posición y de la etiqueta.
+     * @return La etiqueta creada.
+     */
+
     private JLabel crearProductoLabel(String rutaImagen, int x, int y) {
         ImageIcon imagen = new ImageIcon(rutaImagen);
         JLabel label = new JLabel(imagen);
@@ -78,7 +105,15 @@ public class PanelExpendedor extends JPanel {
         return label;
     }
 
-    // Método para crear etiquetas de monedas
+    /**
+     * Método para crear etiquetas de monedas.
+     *
+     * @param rutaImagen La ruta a la imagen de la moneda.
+     * @param x          La posición x de la etiqueta.
+     * @param y          La posición y de la etiqueta.
+     * @return La etiqueta creada.
+     */
+
     private JLabel crearMonedaLabel(String rutaImagen, int x, int y) {
         ImageIcon imagen = new ImageIcon(rutaImagen);
         JLabel label = new JLabel(imagen);
@@ -87,7 +122,13 @@ public class PanelExpendedor extends JPanel {
         return label;
     }
 
-    // Método para crear botones invisibles para monedas
+    /**
+     * Método para crear botones invisibles para monedas.
+     *
+     * @param label  La etiqueta de la moneda.
+     * @param moneda La moneda.
+     */
+
     private void crearBotonMoneda(JLabel label, Moneda moneda) {
         JButton boton = new JButton();
         boton.setBounds(label.getBounds());
@@ -103,7 +144,13 @@ public class PanelExpendedor extends JPanel {
         this.add(boton);
     }
 
-    // Método para crear botones invisibles para productos
+    /**
+     * Método para crear botones invisibles para productos.
+     *
+     * @param label    La etiqueta del producto.
+     * @param producto El producto.
+     */
+
     private void crearBotonProducto(JLabel label, Precios producto) {
         JButton boton = new JButton();
         boton.setBounds(label.getBounds());
@@ -119,7 +166,13 @@ public class PanelExpendedor extends JPanel {
         this.add(boton);
     }
 
-    // Método para manejar la selección de monedas
+    /**
+     * Método para manejar la selección de monedas.
+     *
+     * @param label  La etiqueta de la moneda.
+     * @param moneda La moneda.
+     */
+
     private void seleccionarMoneda(JLabel label, Moneda moneda) {
         if (monedaSeleccionada != null) {
             monedaSeleccionada.setBorder(null); // Restablecer la selección previa
@@ -129,7 +182,12 @@ public class PanelExpendedor extends JPanel {
         monedaSeleccionada.setBorder(BorderFactory.createLineBorder(Color.RED, 2)); // Marcar la nueva selección
     }
 
-    // Método para manejar la compra de productos
+    /**
+     * Método para manejar la compra de productos.
+     *
+     * @param producto El producto a comprar.
+     */
+
     private void comprarProducto(Precios producto) {
         if (monedaInsertada != null) {
             try {
@@ -153,16 +211,20 @@ public class PanelExpendedor extends JPanel {
                             eliminarProductoSeleccionado(labelSuper8);
                             break;
                     }
-                    //eliminarMonedaSeleccionada(); // Eliminar la moneda utilizada
+                    // eliminarMonedaSeleccionada(); // Eliminar la moneda utilizada
                 }
                 monedaInsertada = null;
             } catch (PagoIncorrectoException | PagoInsuficienteException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage()+"a");
+                JOptionPane.showMessageDialog(this, ex.getMessage() + "a");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Inserta una moneda primero.");
         }
     }
+
+    /**
+     * Método para eliminar la moneda seleccionada del panel y actualizar el panel.
+     */
 
     private void eliminarMonedaSeleccionada() {
         if (monedaSeleccionada != null) {
@@ -171,6 +233,14 @@ public class PanelExpendedor extends JPanel {
             this.repaint(); // Actualizar el panel después de eliminar la moneda
         }
     }
+
+    /**
+     * Método para eliminar el producto seleccionado del panel y actualizar el
+     * panel.
+     *
+     * @param labelProducto La etiqueta del producto a eliminar.
+     */
+
     private void eliminarProductoSeleccionado(JLabel labelProducto) {
         if (labelProducto != null) {
             this.remove(labelProducto);
@@ -178,6 +248,12 @@ public class PanelExpendedor extends JPanel {
         }
     }
 
+    /**
+     * Método que se llama cuando el panel necesita ser repintado.
+     * Puede ser sobrescrito para realizar pintura personalizada.
+     *
+     * @param g El objeto Graphics para operaciones de pintura.
+     */
 
     @Override
     protected void paintComponent(Graphics g) {
