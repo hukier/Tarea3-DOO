@@ -38,13 +38,6 @@ public class PanelExpendedor extends JPanel {
         labelSnickers = crearProductoLabel("src/main/java/resources/Snickers.png", 450, 420);
         labelSuper8 = crearProductoLabel("src/main/java/resources/Super8.png", 450, 550);
 
-        // Crear y agregar la imagen del expendedor
-        ImageIcon imageExpendedor = new ImageIcon("src/main/java/resources/Expendedor.png");
-        labelExpendedor = new JLabel();
-        labelExpendedor.setIcon(imageExpendedor);
-        labelExpendedor.setBounds(0, -35, imageExpendedor.getIconWidth(), imageExpendedor.getIconHeight());
-        this.add(labelExpendedor);
-
         // Crear etiquetas para las monedas
         labelMoneda100 = crearMonedaLabel("src/main/java/resources/Moneda100.png", 100, 50);
         labelMoneda500 = crearMonedaLabel("src/main/java/resources/Moneda500.png", 200, 50);
@@ -64,6 +57,13 @@ public class PanelExpendedor extends JPanel {
         crearBotonProducto(labelFanta, Precios.Fanta);
         crearBotonProducto(labelSnickers, Precios.Snickers);
         crearBotonProducto(labelSuper8, Precios.Super8);
+
+        // Crear y agregar la imagen del expendedor
+        ImageIcon imageExpendedor = new ImageIcon("src/main/java/resources/Expendedor.png");
+        labelExpendedor = new JLabel();
+        labelExpendedor.setIcon(imageExpendedor);
+        labelExpendedor.setBounds(0, -35, imageExpendedor.getIconWidth(), imageExpendedor.getIconHeight());
+        this.add(labelExpendedor);
 
         // Asegura que labelFondo esté en la capa más baja
         this.setComponentZOrder(labelFondo, this.getComponentCount() - 1);
@@ -109,7 +109,7 @@ public class PanelExpendedor extends JPanel {
         boton.setBounds(label.getBounds());
         boton.setOpaque(false);
         boton.setContentAreaFilled(false);
-        boton.setBorderPainted(false);
+        boton.setBorderPainted(true);
         boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
