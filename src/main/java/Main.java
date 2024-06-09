@@ -28,12 +28,6 @@ public class Main {
     public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
 
         Ventana v = new Ventana();
-
-        Expendedor exp = new Expendedor(2);
-        Moneda moneda = new Moneda1000();
-        Comprador comprador = new Comprador(moneda, Precios.CocaCola, exp);
-        exp.comprarBebida(Precios.CocaCola, moneda);
-
         /*
         Expendedor expendedor = new Expendedor(1);
 
